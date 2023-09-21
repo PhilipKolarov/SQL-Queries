@@ -46,3 +46,24 @@ WHERE DepartmentID <> 4;
 SELECT *
 FROM Employees
 ORDER BY Salary DESC, FirstName, LastName DESC, MiddleName;
+
+CREATE VIEW V_EmployeesSalary
+AS
+SELECT FirstName, LastName, Salary
+FROM Employees;
+
+CREATE VIEW V_EmployeeNameJobTitle
+AS
+SELECT FirstName + ' ' + ISNULL(MiddleName, '') + ' ' + LastName AS [Employee Name], JobTitle
+FROM Employees;
+
+SELECT DISTINCT JobTitle
+FROM Employees;
+
+SELECT TOP(10) *
+FROM Projects
+ORDER BY StartDate, [Name];
+
+SELECT TOP(7) FirstName, LastName, HireDate
+FROM Employees
+ORDER BY HireDate DESC;
