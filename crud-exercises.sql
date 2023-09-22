@@ -67,3 +67,11 @@ ORDER BY StartDate, [Name];
 SELECT TOP(7) FirstName, LastName, HireDate
 FROM Employees
 ORDER BY HireDate DESC;
+
+UPDATE Employees
+SET Salary = Salary*1.12
+WHERE DepartmentID IN(
+	SELECT DepartmentID
+	FROM Departments
+	WHERE [Name] IN('Engineering', 'Tool Design', 'Marketing', 'Information Services'));
+SELECT Salary FROM Employees;
