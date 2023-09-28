@@ -84,3 +84,19 @@ VALUES (1, 101),
 	   (3, 103),
 	   (2, 102),
 	   (2, 103);
+
+
+
+CREATE TABLE Teachers(
+	TeacherID INT PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL,
+	ManagerID INT REFERENCES Teachers(TeacherID)
+)
+
+INSERT INTO Teachers(TeacherID, [Name], ManagerID)
+VALUES (101, 'Johnny', NULL),
+	   (102, 'Laura', 101),
+	   (103, 'Anna', 101),
+	   (104, 'David', 101),
+	   (105, 'Herbert', NULL),
+	   (106, 'Sam', 105);
