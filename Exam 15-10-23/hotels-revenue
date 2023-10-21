@@ -1,0 +1,8 @@
+-- 10 Hotels Revenue
+SELECT h.[Name] AS HotelName
+	   ,SUM(r.Price * DATEDIFF(day, b.ArrivalDate, b.DepartureDate)) AS HotelRevenue
+FROM Bookings AS b
+JOIN Hotels AS h ON h.Id = b.HotelId
+JOIN Rooms AS r ON r.Id = b.RoomId
+GROUP BY h.[Name]
+ORDER BY HotelRevenue DESC
